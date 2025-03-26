@@ -1,9 +1,9 @@
 ---
-title: Istio MTLS Smartness Explained
+title: Envoy Layered Runtime Configuration Override
 date: 2022-03-09 12:00:00 +0000
 categories: [Kubernetes, Networking]
 tags: [istio, security]
 ---
 
-[https://vikaschoudhary16.wordpress.com/2022/06/20/undeistio-permissive-authz-magic-2/](https://vikaschoudhary16.wordpress.com/2022/06/20/undeistio-permissive-authz-magic-2/)
+[https://nizam-uddin.medium.com/envoy-layered-runtime-configuration-override-ac3499f82f6f](https://nizam-uddin.medium.com/envoy-layered-runtime-configuration-override-ac3499f82f6f)
 
