@@ -63,7 +63,7 @@ Here’s the simplified flow of both inbound and outbound traffic:
 
 ## 📦 Complete Block Diagram
 
-![Istio iptables flow](/assets/img/posts/istio-iptables-flow-diagram.svg)
+![Istio iptables flow](/assets/img/posts/istio-iptables-flow-diagram.png)
 
 > A visual representation of how Istio manipulates iptables chains inside the Pod namespace.
 
