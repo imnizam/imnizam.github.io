@@ -2,7 +2,7 @@
 title: Understanding iptables Chains — With a Smile!
 date: 2025-04-14 12:00:00 +0000
 categories: [Linux, Networking]
-tags: [iptables, networking, firewall, Linux]
+tags: [iptables, networking, Linux]
 ---
 
 Hey there, networking ninjas! 🥷👋  
@@ -146,10 +146,5 @@ iptables-save
 ---
 
 ## 🚀 You Did It!
-
----
-
-_Stay secure, stay curious, and happy packet filtering!_ ✨
-```
 
 ---
