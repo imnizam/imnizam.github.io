@@ -1,8 +1,3 @@
-Absolutely! Below is a version of the `iptables` chain explanation formatted for a **GitHub Pages blog** using the [**Chirpy** theme](https://github.com/cotes2020/jekyll-theme-chirpy). It includes proper front matter, markdown structure, and emoji-enhanced, developer-friendly language to keep it fun and informative.
-
----
-
-```markdown
 ---
 title: 🧱 Understanding iptables Chains — With a Smile!
 date: 2025-04-14
