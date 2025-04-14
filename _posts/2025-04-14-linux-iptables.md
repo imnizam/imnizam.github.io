@@ -3,7 +3,6 @@ title: Understanding iptables Chains — With a Smile!
 date: 2025-04-14 12:00:00 +0000
 categories: [Linux, Networking]
 tags: [iptables, networking, firewall, Linux]
-toc: true
 ---
 
 Hey there, networking ninjas! 🥷👋  
