@@ -1,7 +1,7 @@
 ---
 title: How Istio Init Changes iptables in Pod Namespace
 date: 2025-04-14
-categories: [Kubernetes, Networking]
+categories: [Kubernetes, Istio]
 tags: [istio, iptables, service-mesh, kubernetes]
 ---
 
