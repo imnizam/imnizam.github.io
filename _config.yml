@@ -121,7 +121,7 @@ comments:
   giscus:
     repo: imnizam/imnizam.github.io
     repo_id: "955176709"
-    category: Announcements
+    category: "Blog Comments"
     category_id: "DIC_kwDOOF-ghM4CnyET"
     mapping: # optional, default to 'pathname'
     strict: # optional, default to '0'
