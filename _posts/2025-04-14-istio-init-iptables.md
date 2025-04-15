@@ -3,6 +3,8 @@ title: How Istio Init Changes iptables in Pod Namespace
 date: 2025-04-14
 categories: [Kubernetes, Istio]
 tags: [istio, iptables, service-mesh, kubernetes]
+author: "Nizam Uddin"
+layout: post
 ---
 # Introduction
 In an Istio-enabled Kubernetes cluster, sidecar injection introduces smart traffic routing magic using `iptables`. But how exactly does this work under the hood in the **Pod’s network namespace**?

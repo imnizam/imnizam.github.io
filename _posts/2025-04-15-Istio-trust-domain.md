@@ -3,6 +3,8 @@ title: "Understanding Trust Domains in Istio: Isolating Security Boundaries"
 date: 2025-04-14
 tags: [Istio, Service Mesh, Security, Trust Domain, Multi-Cluster, Kubernetes]
 categories: [Kubernetes, Istio]
+author: "Nizam Uddin"
+layout: post
 ---
 
 # Introduction

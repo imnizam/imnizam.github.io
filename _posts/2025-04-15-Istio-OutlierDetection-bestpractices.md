@@ -4,6 +4,8 @@ date: 2025-04-15
 categories: [Istio, Kubernetes]
 tags: [istio, resilience, traffic-management, outlier-detection]
 toc: true
+author: "Nizam Uddin"
+layout: post
 ---
 
 # Introduction

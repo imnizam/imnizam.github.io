@@ -4,6 +4,8 @@ date: 2025-04-15
 categories: [Istio, Kubernetes]
 tags: [istio, multicluster, trustdomain, spiffe, security]
 toc: true
+author: "Nizam Uddin"
+layout: post
 ---
 
 # Introduction

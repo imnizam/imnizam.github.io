@@ -3,6 +3,8 @@ title: Understanding iptables Chains — With a Smile!
 date: 2025-04-14 12:00:00 +0000
 categories: [Linux, Networking]
 tags: [iptables, networking, Linux]
+author: "Nizam Uddin"
+layout: post
 ---
 
 # Introduction
