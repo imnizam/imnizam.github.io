@@ -7,13 +7,14 @@ tags: [istio, service-mesh]
 layout: post
 ---
 
+# Introduction
 Istio has emerged as one of the most powerful service mesh platforms for managing microservices at scale. Initially, many organizations deploy Istio in a single-cluster setup. However, as teams grow and infrastructure scales across regions or availability zones, migrating to a multi-cluster mesh becomes necessary.
 
 In this blog, we'll walk through the best practices for migrating Istio from a single-cluster to a multi-cluster mesh setup.
 
 ---
 
-## 🚀 Why Migrate to a Multi-Cluster Mesh?
+##  Why Migrate to a Multi-Cluster Mesh?
 
 - **High Availability**: Isolate failures and provide redundancy across clusters.
 - **Scalability**: Spread workloads across multiple clusters for better resource utilization.
@@ -22,7 +23,7 @@ In this blog, we'll walk through the best practices for migrating Istio from a s
 
 ---
 
-## 🛠️ Migration Strategies
+##  Migration Strategies
 
 ### 1. **Understand Istio Multi-Cluster Topologies**
 
@@ -31,7 +32,7 @@ There are two major topologies:
 - **Single Network (Flat Network)**: Clusters share the same network, and pods can communicate directly.
 - **Multi-Network**: Clusters are in separate networks. Requires Istio east-west gateways for inter-cluster communication.
 
-📘 *Choose a topology based on your infrastructure. Public cloud deployments often lean toward multi-network topologies.*
+ *Choose a topology based on your infrastructure. Public cloud deployments often lean toward multi-network topologies.*
 
 ---
 
@@ -81,7 +82,7 @@ Repeat this for each cluster pair.
 - No shared control plane
 - **Different network IDs**
 
-![Multi-Primary Multi-Network](https://istio.io/latest/docs/ops/deployment/deployment-models/multi-primary-multi-network.svg)
+![Multi-Primary Multi-Network](https://istio.io/latest/docs/setup/install/multicluster/multi-primary_multi-network/arch.svg)
 
 Each cluster needs an [east-west gateway](https://istio.io/latest/docs/setup/install/multicluster/multi-primary_multi-network/#install-the-east-west-gateway-in-cluster1) to facilitate cross-network traffic:
 
@@ -103,7 +104,7 @@ After setup, deploy sample apps (like `httpbin`, `sleep`) across clusters. Verif
 
 ---
 
-## ✅ Best Practices
+##  Best Practices
 
 - **Use a common root CA** for secure identity.
 - **Label namespaces** with `istio-injection=enabled` to ensure sidecar injection.
@@ -114,7 +115,7 @@ After setup, deploy sample apps (like `httpbin`, `sleep`) across clusters. Verif
 
 ---
 
-## 🧪 Troubleshooting Tips
+##  Troubleshooting Tips
 
 - Use `istioctl proxy-status` to check envoy connectivity.
 - Validate gateways with `kubectl get svc -n istio-system`.
@@ -123,7 +124,7 @@ After setup, deploy sample apps (like `httpbin`, `sleep`) across clusters. Verif
 
 ---
 
-## 📚 Resources
+##  Resources
 
 - [Istio Multi-Cluster Docs](https://istio.io/latest/docs/setup/install/multicluster/)
 - [Istio Operator API](https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/)
@@ -131,6 +132,6 @@ After setup, deploy sample apps (like `httpbin`, `sleep`) across clusters. Verif
 
 ---
 
-## 📌 Final Thoughts
+##  Final Thoughts
 
 Migrating to a multi-cluster Istio mesh isn't just about scaling infrastructure—it's about achieving better reliability, latency, and operational clarity. With careful planning and these best practices, your migration will set the stage for a resilient and scalable service mesh architecture.

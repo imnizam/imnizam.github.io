@@ -6,6 +6,7 @@ tags: [istio, multicluster, trustdomain, spiffe, security]
 toc: true
 ---
 
+# Introduction
 When deploying Istio across multiple clusters—especially in a multi-network, multi-primary setup—it's often desirable to isolate **security boundaries** using **different root CAs** per cluster. But what if you still need **cross-cluster communication**? Let's walk through **manually federating trust** between clusters with different CAs, step-by-step.
 
 ##  Use Case
@@ -32,7 +33,7 @@ Each cluster runs Istio with its **own root CA**, but you explicitly configure e
 
 ---
 
-## 1️⃣ Export Root CAs from Each Cluster
+## 1- Export Root CAs from Each Cluster
 
 Get each cluster’s root cert from the Istio CA secret:
 
@@ -46,7 +47,7 @@ kubectl -n istio-system get secret cacerts -o jsonpath="{.data['root-cert\.pem']
 
 ---
 
-## 2️⃣ Create ConfigMap to Share Remote Root CA
+## 2- Create ConfigMap to Share Remote Root CA
 
 Create a ConfigMap in each cluster to hold the other cluster’s root cert.
 
@@ -62,7 +63,7 @@ kubectl create configmap cluster-a-root-cert -n istio-system \
 
 ---
 
-## 3️⃣ Inject Extra Root Certs into Sidecars
+## 3- Inject Extra Root Certs into Sidecars
 
 Mount the shared root cert into the sidecar and instruct Istio to use it.
 
@@ -89,7 +90,7 @@ values:
 
 ---
 
-## 4️⃣ Enable Cross-Trust via `trustDomainAliases`
+## 4- Enable Cross-Trust via `trustDomainAliases`
 
 Create a `PeerAuthentication` policy to explicitly **allow trust** from the other cluster.
 

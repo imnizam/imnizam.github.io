@@ -5,6 +5,7 @@ tags: [Istio, Service Mesh, Security, Trust Domain, Multi-Cluster, Kubernetes]
 categories: [Kubernetes, Istio]
 ---
 
+# Introduction
 When running Istio in a **multi-cluster** or **multi-network** setup, securing communication between services isn't just about mTLS encryption. It's also about **who you trust** and **how you isolate identities**. That's where `trustDomain` comes in.
 
 In this post, we'll explore what **"Isolation of security boundaries"** means in Istio, and how **different trust domains** enable secure, identity-aware communication across clusters.

@@ -5,25 +5,25 @@ categories: [Linux, Networking]
 tags: [iptables, networking, Linux]
 ---
 
-Hey there, networking ninjas! 🥷👋  
-Ever run `iptables -L` and felt like you just opened the Matrix? 😵‍💫 All those chains, tables, and rules… what do they *really* mean?
+# Introduction
+Ever run `iptables -L` and felt like you just opened the Matrix? All those chains, tables, and rules… what do they *really* mean?
 
-Let’s break it down in a chill, cheerful way so you can tame your firewall like a pro. 🚀
+Let’s break it down -
 
 ---
 
-## 🔗 What’s a Chain?
+##  What’s a Chain?
 
 A **chain** in `iptables` is like a **checkpoint** where packets are checked and rules are applied. Depending on the chain, we might:
-- Allow the packet 🟢
-- Modify it 🎭
-- Or block it 🔥
+- Allow the packet
+- Modify it
+- Or block it
 
 Chains are grouped into **tables**, each designed for a specific kind of job. Let’s meet these tables and their trusty chains!
 
 ---
 
-## 🛡️ `filter` Table — The Bodyguard 💪
+##  `filter` Table — The Bodyguard 
 
 This is the default table, and it’s all about saying “yay” or “nay” to packets.
 
@@ -40,7 +40,7 @@ iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 
 ---
 
-## 🌐 `nat` Table — The Identity Changer 🎭
+##  `nat` Table — The Identity Changer
 
 This one handles **Network Address Translation**, changing where packets appear to come from or where they're going.
 
@@ -57,7 +57,7 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 ---
 
-## 🎨 `mangle` Table — The Packet Stylist 💅
+##  `mangle` Table — The Packet Stylist 
 
 Need to tweak packet headers or mark packets for special treatment? This is your table.
 
@@ -76,7 +76,7 @@ iptables -t mangle -A PREROUTING -p tcp --dport 80 -j MARK --set-mark 1
 
 ---
 
-## 🐣 `raw` Table — The Early Bird
+##  `raw` Table — The Early Bird
 
 The **raw** table acts *before* connection tracking. It's rarely used, but super powerful when you need to bypass conntrack.
 
@@ -87,7 +87,7 @@ The **raw** table acts *before* connection tracking. It's rarely used, but super
 
 ---
 
-## 🛡️ `security` Table — The SELinux Bouncer 😎
+##  `security` Table — The SELinux Bouncer
 
 This is where SELinux and other MAC systems apply their policies.
 
@@ -97,11 +97,11 @@ This is where SELinux and other MAC systems apply their policies.
 | `OUTPUT`  | Security rules for outgoing packets |
 | `FORWARD` | Security rules for passed-through packets |
 
-> ✨ This one’s only active if you’re using SELinux or similar MAC systems.
+>  This one’s only active if you’re using SELinux or similar MAC systems.
 
 ---
 
-## 🧩 Custom Chains — Modular Magic ✨
+##  Custom Chains — Modular Magic 
 
 You can define your own chains to keep things clean!
 
@@ -114,7 +114,7 @@ This keeps your main chains neat and your logic reusable. 💡
 
 ---
 
-## 🔍 How to View Your Chains
+##  How to View Your Chains
 
 Want to peek into what’s going on?
 
@@ -133,7 +133,7 @@ iptables-save
 
 ---
 
-## 🧠 TL;DR — Chain Cheat Sheet
+##  TL;DR — Chain Cheat Sheet
 
 | Table   | Chains                          | What It’s For                      |
 |---------|----------------------------------|-------------------------------------|
@@ -145,4 +145,4 @@ iptables-save
 
 ---
 
-## 🚀 You Did It!
+##  You Did It!
