@@ -177,4 +177,3 @@ Istio’s outlier detection acts as a **dynamic buffer**, shielding your service
 | `maxEjectionPercent` | Max % of pods to eject | ≤50% |
 | `consecutiveGatewayErrors` | For ingress scenarios | Yes |
 
----

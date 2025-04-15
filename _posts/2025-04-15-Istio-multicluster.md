@@ -5,7 +5,6 @@ author: "Nizam Uddin"
 categories: [Kubernetes, Istio]
 tags: [istio, service-mesh]
 layout: post
-description: "A comprehensive guide to help you migrate your Istio deployment from a single-cluster to a robust multi-cluster service mesh architecture."
 ---
 
 Istio has emerged as one of the most powerful service mesh platforms for managing microservices at scale. Initially, many organizations deploy Istio in a single-cluster setup. However, as teams grow and infrastructure scales across regions or availability zones, migrating to a multi-cluster mesh becomes necessary.

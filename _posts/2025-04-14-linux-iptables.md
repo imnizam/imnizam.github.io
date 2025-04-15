@@ -146,5 +146,3 @@ iptables-save
 ---
 
 ## 🚀 You Did It!
-
----

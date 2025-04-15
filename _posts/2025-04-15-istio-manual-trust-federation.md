@@ -1,7 +1,7 @@
 ---
 title: "Manually Federating Trust Between Istio Clusters with Different Root CAs"
 date: 2025-04-15
-categories: [Istio, Multi-Cluster]
+categories: [Istio, Kubernetes]
 tags: [istio, multicluster, trustdomain, spiffe, security]
 toc: true
 ---
