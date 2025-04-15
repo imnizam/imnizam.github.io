@@ -1,11 +1,12 @@
 ---
 title: "Best Practices for Leveraging Istio Outlier Detection"
 date: 2025-04-15
-categories: [Istio, Resilience]
+categories: [Istio, Kubernetes]
 tags: [istio, resilience, traffic-management, outlier-detection]
 toc: true
 ---
 
+# Introduction
 Istio’s [outlier detection](https://istio.io/latest/docs/reference/config/networking/destination-rule/#OutlierDetection) feature is a powerful resilience mechanism that helps prevent unhealthy instances of a service from degrading user experience.
 
 In this post, we’ll explore what outlier detection is, when and why to use it, and **production-grade best practices** to ensure a **robust, failure-tolerant mesh**.
@@ -46,7 +47,7 @@ spec:
 
 ##  Best Practices
 
-### 1️⃣ Start with Conservative Thresholds
+### 1- Start with Conservative Thresholds
 
 In a production mesh, you don't want false positives.
 
@@ -61,7 +62,7 @@ baseEjectionTime: 30s
 
 ---
 
-### 2️⃣ Use **`consecutiveGatewayErrors`** in Gateways
+### 2- Use **`consecutiveGatewayErrors`** in Gateways
 
 For **ingress gateways**, use this field to account for upstream errors like 502s or 503s.
 
@@ -73,7 +74,7 @@ This is useful when your pods are returning downstream errors, not just internal
 
 ---
 
-### 3️⃣ Protect with Circuit Breakers
+### 3- Protect with Circuit Breakers
 
 Outlier detection works well with connection pool settings to **limit concurrent requests** and reduce retries to bad pods.
 
@@ -85,7 +86,8 @@ connectionPool:
     http1MaxPendingRequests: 50
     maxRequestsPerConnection: 10
 ```
-#### 1️⃣ `tcp.maxConnections: 100`
+Let's discuss each config part - 
+#### a- `tcp.maxConnections: 100`
 
 Limits the **maximum number of concurrent TCP connections** Envoy can open to a pod.
 
@@ -95,7 +97,7 @@ Limits the **maximum number of concurrent TCP connections** Envoy can open to a 
 
 ---
 
-#### 2️⃣ `http.http1MaxPendingRequests: 50`
+#### b- `http.http1MaxPendingRequests: 50`
 
 Caps the number of **HTTP requests waiting in the queue** for a connection.
 
@@ -105,7 +107,7 @@ Caps the number of **HTTP requests waiting in the queue** for a connection.
 
 ---
 
-#### 3️⃣ `http.maxRequestsPerConnection: 10`
+#### c- `http.maxRequestsPerConnection: 10`
 
 Controls how many **requests are sent per TCP connection** (especially for keep-alive connections).
 
@@ -115,7 +117,7 @@ Controls how many **requests are sent per TCP connection** (especially for keep-
 
 ---
 
-####  How It All Works Together
+#### d- How It All Works Together
 
 Imagine one pod starts **randomly timing out**. With these `connectionPool` settings:
 - Envoy **limits load** on the faulty pod (no flood of 1k open connections).
@@ -124,7 +126,7 @@ Imagine one pod starts **randomly timing out**. With these `connectionPool` sett
 - Envoy's **outlier detector gets faster, cleaner signal** — and kicks out the bad pod.
 ---
 
-### 4️⃣ Monitor Ejections in Prometheus
+### 4- Monitor Ejections in Prometheus
 
 Track these metrics:
 - `istio_requests_total{response_code="5xx"}`
@@ -138,7 +140,7 @@ ejections_active > 0 for N minutes
 
 ---
 
-### 5️⃣ Combine with `maxEjectionPercent`
+### 5- Combine with `maxEjectionPercent`
 
 To prevent over-ejecting in small deployments, limit the percentage:
 
